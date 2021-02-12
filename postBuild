@@ -1,1 +1,1 @@
-mv inst/tutorials/selfassessment/*Rmd .
+mv inst/tutorials/selfassessment/ .
