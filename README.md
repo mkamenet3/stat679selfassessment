@@ -8,4 +8,4 @@ It is intended to be used as a review guide for students prior to the course.
 
 If you do not have `R` and `RStudio` installed yet, you can run the tutorial
 using mybinder.org:
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mkamenet3/stat679selfassessment/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mkamenet3/stat679selfassessment/HEAD?urlpath=shiny/selfassessment/)
