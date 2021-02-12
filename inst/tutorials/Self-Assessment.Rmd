@@ -1,0 +1,184 @@
+---
+title: "STAT679-III: Self-Assessment"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(MASS)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+
+## R Review
+
+
+In this section, you will review some `R` syntax as well as simple linear regression and interpretation. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended helpful link about the topic that you can read through at your convenience.
+
+
+```{r quizR}
+quiz(
+  question("Suppose you build a simple linear model with the following code: ```mod <- lm(poverty ~ percRetail, data=mydata)```. In this example, which of the following relationships are correct:",
+    answer("`poverty` is the response, `percRetail` is the predictor or explanatory variable, `mydata` is the data frame.", correct=TRUE),
+    answer("`poverty` is the predictor or explanatory variable, `percRetail` is the response, `mydata` is the data frame."),
+    answer("`poverty` is the response, `percRetail` is the predictor or explanatory variable, I don't know what `mydata` is."),
+    incorrect="Not quite - try again! Hint: check out this [helpful link](http://www.sthda.com/english/articles/40-regression-analysis/167-simple-linear-regression-in-r/)",
+    allow_retry = TRUE,
+    try_again_button = "Try again.",
+    correct="Correct! For more information, check out this [helpful link](http://www.sthda.com/english/articles/40-regression-analysis/167-simple-linear-regression-in-r/).")
+)
+
+```
+
+Consider the following analysis of black cherry trees. Each tree girth (diameter), height, and volume of timber was measured for 31 felled trees. Girth measurements (diameter) are in inches. Below we show the first 6 rows of the data frame and summary of the data frame.
+
+```{r}
+data("trees")
+head(trees)
+summary(trees)
+```
+
+Suppose you are interested in understanding more about the relationship between tree girth (diameter) and height. You build a simple linear model:
+
+```{r}
+mod <- lm(Girth ~ Height, data=trees)
+summary(mod)
+
+stdresids <- stdres(mod)
+par(mfrow = c(1,2))
+plot(mod, which=1, add.smooth=FALSE); abline(h=0, lty=2, col="red")
+plot(mod, which=2)
+```
+
+Using the model summary output above, fill in the blank in the interpretation of the model coefficients.
+
+```{r quizmod}
+quiz(
+  question("In the above diagnostic plots, the plot on the *left* is:",
+           answer("Residuals vs. fitted plot", correct=TRUE),
+           answer("QQ plot"),
+           answer("I'm not sure"),
+           allow_retry = TRUE,
+           try_again_button = "Try again.",
+           incorrect = "Not quite - try again! Hint: check out this [helpful link](https://online.stat.psu.edu/stat462/node/117/)",
+           correct="Correct! The plot on the left is the residuals vs. fitted diagnostic plot. For more information, check out this [helpful link](https://online.stat.psu.edu/stat462/node/117/)."),
+   question("In the above diagnostic plots, the plot on the *right* is:",
+           answer("Residuals vs. fitted plot"),
+           answer("QQ plot", correct=TRUE),
+           answer("I'm not sure"),
+           allow_retry = TRUE,
+           try_again_button = "Try again.",
+           incorrect="Not quite - try again!  Hint: check out this [helpful link](https://data.library.virginia.edu/understanding-q-q-plots/)",
+           correct="Correct! The plot on the right is the QQ plot. For more information, check out this [helpful link](https://data.library.virginia.edu/understanding-q-q-plots/)."),
+  question("The estimated intercept ($\\beta_0$) is:",
+           answer("0.25575"),
+           answer("-6.18839", correct=TRUE),
+           answer("5.96020"),
+           allow_retry = TRUE,
+          try_again_button = "Try again",
+           correct="Correct! The estimated intercept is -6.18839. For a tree with zero height, the estimated girth is -6.18839 inches."),
+  question("The estimated regression coefficient for `Height` is 0.25575 with a standard error of 0.07816. The $t$ test-statistic is:",
+           answer("3.272", correct=TRUE),
+           answer("0.00276"),
+           answer("2.728"),
+           allow_retry = TRUE,
+           try_again_button = "Try again",
+           correct="Correct! The $t$ test statistic is 3.272."),
+  question("The p-value of the estimated regression coefficient for `Height` is:",
+           answer("0.00276", correct=TRUE),
+           answer("0.2445"),
+           answer("0.30722"),
+           allow_retry = TRUE,
+           try_again_button = "Try again",
+           correct="Correct! The p-value of the estimated regression coefficient for height is 0.00276."),
+  question("For every 1 inch increase in height, we can expect a `_______` in tree girth.",
+           answer("0.256 inch decrease"),
+           answer("6.19 inch decrease"),
+           answer("0.256 inch increase",correct=TRUE,), 
+           allow_retry = TRUE,
+           try_again_button = "Try again",
+           correct="Correct! For every 1 inch increase in height, we can expect a 0.256 inch increase in tree girth."),
+  question("At the 0.05 level, there is `______` evidence of a relationship between tree height and girth.",
+           answer("Weak"),
+           answer("Strong", correct=TRUE),
+           answer("No"),
+           allow_retry = TRUE,
+           try_again_button = "Try again. Hint: what do you use the p-value for?",
+           correct="Correct! At the 0.05 level, there is strong evidence of a relationship between tree height and girth. ")
+)
+
+```
+
+
+## Statistics Review
+
+
+In this section, you will review some of the material from your previous statistics courses, such as t-tests, z-tests. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended readings from Moore, McCabe, Craig [*Introduction to the Practice of Statistics*](https://www.amazon.com/Introduction-Practice-Statistics-Student-CD/dp/1429216220/ref=sr_1_3?dchild=1&keywords=Moore%2C+McCabe%2C+Craig+*Introduction+to+the+Practice+of+Statistics*&qid=1612931726&s=books&sr=1-3) as well as a helpful link about the topic that you can read through at your convenience.
+
+
+
+
+
+```{r quiz}
+
+
+
+quiz(
+  question("Suppose you are exploring a random sample of 8 students from the UW-Madison campus and you are interested in learning about the average number of hours they spend listening to music. The sample mean ($\\bar{x})$) is 5, the standard deviation ($s$) is 3.63, and the sample size ($n$) is 8. Calculate the standard error.",
+    answer("1.37"),
+    answer("4.66"),
+    answer("1.28", correct = TRUE),
+    answer("0.45"),
+    incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-the-standard-error-of-a-sample/)",
+    allow_retry = TRUE,
+    try_again_button = "Try again.",
+    correct="Correct! The standard error is $s/\\sqrt{n}=3.63/\\sqrt{8}=1.28$. For more information, please refer to Moore, McCabe, and Craig Chapter 7.1 or check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-the-standard-error-of-a-sample/)"),
+  question("Following from Question 1 above, the t-statistics is 2.365 (you can find the statistics manually using this [t-distribution table](http://statcalculators.com/students-t-distribution-table/). Calculate a 95% confidence interval for $\\bar{x}$).",
+    answer("(1.96, 8.04)", correct = TRUE),
+    answer("(1.76, 8.24)"),
+    answer("(3.93, 6.07)"),
+    answer("(-6.02, 16.02)"),
+    correct="Correct! A 95% confidence interval is given by $\\bar{x}\\pm t^* \\frac{s}{\\sqrt{n}} = 5 \\pm 2.365 \\frac{3.63}{\\sqrt{8}}$. For more information, please refer to Moore, McCabe, and Craig Chapter 7.1 or check out this [helpful link](https://www.youtube.com/watch?v=gDcMG4QK-m4&feature=youtu.be)",
+     incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.youtube.com/watch?v=gDcMG4QK-m4&feature=youtu.be)",
+    allow_retry = TRUE,
+    try_again_button = "Try again"),
+  question("Continuing with the example above, suppose you know that for the U.S. population, the average number of hours someone spends listening to music per day is 8.3 hours. You would like to test the hypothesis that $$H_0: \\mu = 8.3$$ vs. $$H_0: \\mu \\neq 8.3$$ Recall that from Question 1, $\\bar{x}=5$, $s=3.63$, $n=8$. Use the t-distribution to calculate the $t$ test statistics.",
+  answer("-2.41"),
+  answer("-2.57", correct=TRUE),
+  answer("-7.27"),
+  answer("3.9"),
+  correct="Correct! The $t$ test statistics is given by $\\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{5 - 8.3}{3.63/\\sqrt{8}}$.  For more information, please refer to Moore, McCabe, and Craig Ch.7 or check out this [helpful link](https://www.statisticshowto.com/one-sample-t-test/)",
+  incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.statisticshowto.com/one-sample-t-test/)",
+    allow_retry = TRUE,
+    try_again_button = "Try again"),
+  question("Suppose that using a national survey of college students on a distant planet, the mean debt after a single year of college is $2,100 and $1,700 after a single year of community college, yielding a difference of $400. You are given that the standard deviation for this difference is $300. Calculate the z-statistic ($z^*$).",
+    answer("2.67"),
+    answer("1.33", correct=TRUE),
+    answer("23.09"),
+    answer("0"),
+    incorrect="Not quite - try again!. Hint: check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/z-score/)",
+    allow_retry = TRUE,
+    try_again_button = "Try again",
+    correct = "Correct! To calculate the z-statistic, we can take $z= \\frac{\\text{estimate - hypothesized value}}{\\text{standard deviation of the estimate}} = \\frac{400-0}{300} = 1.33$. For more information, please refer to Moore, McCabe, and Craig Chapter 6.2 or check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/z-score/)."),
+  question("Using the z-statistic ($z^*$) calculated in the previous problem and [this Normal distribution table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf), calculate $$P(Z \\leq z^*)$$",
+    answer("0.90824", correct= TRUE),
+    answer("0.09176"),
+    answer("0.11702 "),
+    answer("0.90320"),
+    incorrect="Not quite - try again!. Hint: check out this [helpful link](https://www.youtube.com/watch?v=bir8WtfCeW0)",
+    allow_retry = TRUE,
+    try_again_button = "Try again",
+    correct = "Correct! For more information, please refer to Moore, McCabe, and Craig Chapter 6.2 or check out this [helpful link](https://www.youtube.com/watch?v=bir8WtfCeW0).")
+)
+
+```
+
+
+
+I hope this was helpful. If you have any follow-up questions or feedback, please feel free to email me at mkamenetsky@wisc.edu.
+
+### References:
+
+- All examples adapted from Moore, McCabe, Craig *Introduction to the Practice of Statistics*.
+- Ted Laderas, [Getting LearnR tutorial to run on mybinder.org](http://laderast.github.io/2020/09/15/getting-learnr-tutorials-to-run-on-mybinder-org/)

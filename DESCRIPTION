@@ -1,0 +1,15 @@
+Package: stat679selfassessment
+Title: learnR self-assessment tool for STAT679-III 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Maria",
+           family = "Kamenetsky",
+           role = c("aut", "cre"),
+           email = "mkamenetsky@wisc.edu",
+           comment = c(ORCID = "0000-0002-5401-7786"))
+Description: This self-assessment guides helps learners review previous R and statistics course materials prior to STAT679-III.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
