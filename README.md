@@ -22,6 +22,7 @@ selfassessment()
 
 ```
 
-2) If you do not have `R` and `RStudio` installed yet, you can run the tutorial
-using mybinder.org:
+2) You can also run the tutorial using mybinder.org:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mkamenet3/stat679selfassessment/main?urlpath=shiny/selfassessment/)
+
+Once you click on the link, you will be taken to a new window where the tutorial will be built. *This may take several minutes (up to 15 minutes) the first time you load it*. It should go faster the second time.
