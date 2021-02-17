@@ -143,7 +143,7 @@ quiz(
      incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.youtube.com/watch?v=gDcMG4QK-m4&feature=youtu.be)",
     allow_retry = TRUE,
     try_again_button = "Try again"),
-  question("Continuing with the example above, suppose you know that for the U.S. population, the average number of hours someone spends listening to music per day is 8.3 hours. You would like to test the hypothesis that $$H_0: \\mu = 8.3$$ vs. $$H_0: \\mu \\neq 8.3$$ Recall that from Question 1, $\\bar{x}=5$, $s=3.63$, $n=8$. Use the t-distribution to calculate the $t$ test statistics.",
+  question("Continuing with the example above, suppose you know that for the U.S. population, the average number of hours someone spends listening to music per day is 8.3 hours. You would like to test the hypothesis that $$H_0: \\mu = 8.3$$ vs. $$H_A: \\mu \\neq 8.3$$ Recall that from Question 1, $\\bar{x}=5$, $s=3.63$, $n=8$. Use the t-distribution to calculate the $t$ test statistics.",
   answer("-2.41"),
   answer("-2.57", correct=TRUE),
   answer("-7.27"),
