@@ -114,7 +114,7 @@ quiz(
 ## Statistics Review
 
 
-In this section, you will review some of the material from your previous statistics courses, such as t-tests, z-tests. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended readings from Moore, McCabe, Craig [*Introduction to the Practice of Statistics*](https://www.amazon.com/Introduction-Practice-Statistics-Student-CD/dp/1429216220/ref=sr_1_3?dchild=1&keywords=Moore%2C+McCabe%2C+Craig+*Introduction+to+the+Practice+of+Statistics*&qid=1612931726&s=books&sr=1-3) as well as a helpful link about the topic that you can read through at your convenience.
+In this section, you will review some of the material from your previous statistics courses, such as t-tests, z-tests. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended readings from Moore, McCabe, Craig [*Introduction to the Practice of Statistics*](https://www.amazon.com/Introduction-Practice-Statistics-Student-CD/dp/1429216220/ref=sr_1_3?dchild=1&keywords=Moore%2C+McCabe%2C+Craig+*Introduction+to+the+Practice+of+Statistics*&qid=1612931726&s=books&sr=1-3) as well as a helpful link or video about the topic that you can read through at your convenience.
 
 
 
@@ -134,7 +134,7 @@ quiz(
     allow_retry = TRUE,
     try_again_button = "Try again.",
     correct="Correct! The standard error is $s/\\sqrt{n}=3.63/\\sqrt{8}=1.28$. For more information, please refer to Moore, McCabe, and Craig Chapter 7.1 or check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-the-standard-error-of-a-sample/)"),
-  question("Following from Question 1 above, the t-statistics is 2.365 (you can find the statistics manually using this [t-distribution table](http://statcalculators.com/students-t-distribution-table/). Calculate a 95% confidence interval for $\\bar{x}$).",
+  question("Following from Question 1 above, you are given that the 95th percentile (or 0.975) quantile of the $t$ distribution with 7 degrees of freedom is 2.365 (you can find this manually using this [t-distribution table](http://statcalculators.com/students-t-distribution-table/) or try using `R`: `qt(0.975, df=7)`). Calculate a 95% confidence interval for $\\bar{x}$.",
     answer("(1.96, 8.04)", correct = TRUE),
     answer("(1.76, 8.24)"),
     answer("(3.93, 6.07)"),
@@ -148,28 +148,27 @@ quiz(
   answer("-2.57", correct=TRUE),
   answer("-7.27"),
   answer("3.9"),
-  correct="Correct! The $t$ test statistics is given by $\\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{5 - 8.3}{3.63/\\sqrt{8}}$.  For more information, please refer to Moore, McCabe, and Craig Ch.7 or check out this [helpful link](https://www.statisticshowto.com/one-sample-t-test/)",
+  correct="Correct! The $t$ test statistic is given by $\\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{5 - 8.3}{3.63/\\sqrt{8}} = -2.57$.  For more information, please refer to Moore, McCabe, and Craig Ch.7 or check out this [helpful link](https://www.statisticshowto.com/one-sample-t-test/)",
   incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.statisticshowto.com/one-sample-t-test/)",
     allow_retry = TRUE,
     try_again_button = "Try again"),
-  question("Suppose that using a national survey of college students on a distant planet, the mean debt after a single year of college is $2,100 and $1,700 after a single year of community college, yielding a difference of $400. You are given that the standard deviation for this difference is $300. Calculate the z-statistic ($z^*$).",
-    answer("2.67"),
-    answer("1.33", correct=TRUE),
-    answer("23.09"),
-    answer("0"),
-    incorrect="Not quite - try again!. Hint: check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/z-score/)",
-    allow_retry = TRUE,
-    try_again_button = "Try again",
-    correct = "Correct! To calculate the z-statistic, we can take $z= \\frac{\\text{estimate - hypothesized value}}{\\text{standard deviation of the estimate}} = \\frac{400-0}{300} = 1.33$. For more information, please refer to Moore, McCabe, and Craig Chapter 6.2 or check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/z-score/)."),
-  question("Using the z-statistic ($z^*$) calculated in the previous problem and [this Normal distribution table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf), calculate $$P(Z \\leq z^*)$$",
-    answer("0.90824", correct= TRUE),
-    answer("0.09176"),
-    answer("0.11702 "),
-    answer("0.90320"),
-    incorrect="Not quite - try again!. Hint: check out this [helpful link](https://www.youtube.com/watch?v=bir8WtfCeW0)",
-    allow_retry = TRUE,
-    try_again_button = "Try again",
-    correct = "Correct! For more information, please refer to Moore, McCabe, and Craig Chapter 6.2 or check out this [helpful link](https://www.youtube.com/watch?v=bir8WtfCeW0).")
+  question("What is the p-value associated with this two-sided one-sample t-test? Hint: use the `pt()` function in `R`.",
+           answer("0.0185"),
+           answer("0.037", correct=TRUE),
+           answer("1.96"),
+           answer("0.05"),
+           correct="Correct! The one-sided p-value is 0.0185 (`pt(-2.57, 7)`). However, because this is a two-sided test, we must multiply that by 2 to get 0.037 (`pt(-2.57, 7)*2`). Check out this [helpful link](https://www.socscistatistics.com/pvalues/tdistribution.aspx)",
+           incorrect="Not quite - try again! Hint: check out this [helpful link](https://www.socscistatistics.com/pvalues/tdistribution.aspx).",
+           allow_retry=TRUE,
+           try_again_button = "Try again"),
+  question("Using the evidence you found with the p-value above, at the $\\alpha = 0.05$ level, do you reject or fail to reject the null hypothesis?",
+          answer("Reject $H_0$. There is moderate evidence against the null hypothesis.", correct=TRUE),
+          answer("Fail to reject $H_0$. There is no evidence against the null hypothesis."),
+          answer("I'm not sure"),
+          correct="Correct! Check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)",
+          allow_retry=TRUE,
+          try_again = "Try again",
+          incorrect="Not quite - try again! Hint: check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)")
 )
 
 ```
@@ -178,7 +177,23 @@ quiz(
 
 I hope this was helpful. If you have any follow-up questions or feedback, please feel free to email me at mkamenetsky@wisc.edu.
 
+
+### Helpful Links:
+
+- [Simple Linear Regression in R](http://www.sthda.com/english/articles/40-regression-analysis/167-simple-linear-regression-in-r/)
+- [Residuals vs. Fits Plot](https://online.stat.psu.edu/stat462/node/117/)
+- [Understanding QQ-Plots](https://data.library.virginia.edu/understanding-q-q-plots/)
+- [What is the Standard Error of a Sample](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-the-standard-error-of-a-sample/)
+- [Student's t-distribution table](http://statcalculators.com/students-t-distribution-table/)
+- [How to find a confidence interval with a t distribution](https://www.youtube.com/watch?v=gDcMG4QK-m4&feature=youtu.be)
+- [One sample t-tests](https://www.statisticshowto.com/one-sample-t-test/)
+- [P-value from TScore Calculator](https://www.socscistatistics.com/pvalues/tdistribution.aspx)
+- [Hypothesis Testing (P-value approach)](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach)
+- [Khan Academy: Comparing P-value from t-statistic to significance level](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)
+
 ### References:
 
-- All examples adapted from Moore, McCabe, Craig *Introduction to the Practice of Statistics*.
+- Statistics examples adapted from Moore, McCabe, Craig *Introduction to the Practice of Statistics*.
 - Ted Laderas, [Getting LearnR tutorial to run on mybinder.org](http://laderast.github.io/2020/09/15/getting-learnr-tutorials-to-run-on-mybinder-org/)
+
+
