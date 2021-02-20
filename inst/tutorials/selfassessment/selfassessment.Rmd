@@ -70,7 +70,15 @@ quiz(
            allow_retry = TRUE,
            try_again_button = "Try again.",
            incorrect="Not quite - try again!  Hint: check out this [helpful link](https://data.library.virginia.edu/understanding-q-q-plots/)",
-           correct="Correct! The plot on the right is the QQ plot. For more information, check out this [helpful link](https://data.library.virginia.edu/understanding-q-q-plots/)."),
+           correct="Correct! The plot on the right is the QQ plot. For more information, check out this [helpful link](https://data.library.virginia.edu/understanding-q-q-plots/)."))
+```
+
+```{r}
+summary(mod)
+```
+
+```{r quizmod2}
+quiz(
   question("The estimated intercept ($\\beta_0$) is:",
            answer("0.25575"),
            answer("-6.18839", correct=TRUE),
@@ -114,9 +122,10 @@ quiz(
 ## Statistics Review
 
 
-In this section, you will review some of the material from your previous statistics courses, such as t-tests, z-tests. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended readings from Moore, McCabe, Craig [*Introduction to the Practice of Statistics*](https://www.amazon.com/Introduction-Practice-Statistics-Student-CD/dp/1429216220/ref=sr_1_3?dchild=1&keywords=Moore%2C+McCabe%2C+Craig+*Introduction+to+the+Practice+of+Statistics*&qid=1612931726&s=books&sr=1-3) as well as a helpful link or video about the topic that you can read through at your convenience.
+In this section, you will review some of the material from your previous statistics courses, such as t-tests, z-tests. If you get stuck, no problem! You can have as many re-tries as you want. Once you get the correct answer, a reference will pop up for recommended readings from Moore, McCabe, Craig [*Introduction to the Practice of Statistics*](https://www.amazon.com/Introduction-Practice-Statistics-Student-CD/dp/1429216220/ref=sr_1_3?dchild=1&keywords=Moore%2C+McCabe%2C+Craig+*Introduction+to+the+Practice+of+Statistics*&qid=1612931726&s=books&sr=1-3), which is also available through the University of Wisconsin-Madison [Libraries](https://search.library.wisc.edu/catalog/9910078636102121). For each question, helpful links and/or videos about the topic will also pop up once you attempt a question that you can read through at your convenience.
 
 
+You may find a calculator helpful for the section below. Alternatively, you can open up a new `RStudio` session (`Session -> New Session`) and you can use the `R` console to perform the calculations.
 
 
 
@@ -163,12 +172,12 @@ quiz(
            try_again_button = "Try again"),
   question("Using the evidence you found with the p-value above, at the $\\alpha = 0.05$ level, do you reject or fail to reject the null hypothesis?",
           answer("Reject $H_0$. There is moderate evidence against the null hypothesis.", correct=TRUE),
-          answer("Fail to reject $H_0$. There is no evidence against the null hypothesis."),
-          answer("I'm not sure"),
+          answer("Fail to reject $H_0$. There is no evidence against the null hypothesis.", message="Not quite - try again!  Check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)"),
+          answer("I'm not sure", message="That's ok!  Check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)"),
           correct="Correct! Check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)",
+          incorrect="",
           allow_retry=TRUE,
-          try_again = "Try again",
-          incorrect="Not quite - try again! Hint: check out this [helpful link](https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/p-value-approach) or this [helpful video](https://www.khanacademy.org/math/ap-statistics/tests-significance-ap/one-sample-t-test-mean/v/comparing-p-value-from-t-statistic-to-significance-level)")
+          try_again_button = "Try again")
 )
 
 ```
