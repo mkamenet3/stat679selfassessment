@@ -31,7 +31,7 @@ Once you click on the link, you will be taken to a new window where the self-ass
 
 ### Goals of the self-assessment
 
-The goal of this self-assessment is to help students refresh on some basic `R` skills and statistics terminology and concepts. Answers can be resubmitted as many times as you like. Both correct and incorrect answers have **helpful links and resources** for additional readings. This self-assessment is for students to help themselves. No instructor nor TA receive any answers answers.
+The goal of this self-assessment is to help students refresh on some basic `R` skills and statistics terminology and concepts. Answers can be resubmitted as many times as you like. Both correct and incorrect answers have **helpful links and resources** for additional readings. This self-assessment is for students to help themselves. No instructor nor TA receive any answers.
 
 ### Feedback
 
