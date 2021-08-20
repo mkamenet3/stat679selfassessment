@@ -148,7 +148,7 @@ quiz(
     allow_retry = TRUE,
     try_again_button = "Try again.",
     correct="Correct! The standard error is $s/\\sqrt{n}=3.63/\\sqrt{8}=1.28$. For more information, please refer to Moore, McCabe, and Craig Chapter 7.1 or check out this [helpful link](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-the-standard-error-of-a-sample/)"),
-  question("Following from Question 1 above, you are given that the 95th percentile (or 0.975) quantile of the $t$ distribution with 7 degrees of freedom is 2.365 (you can find this manually using this [t-distribution table](http://statcalculators.com/students-t-distribution-table/) or try using `R`: `qt(0.975, df=7)`). Calculate a 95% confidence interval for $\\bar{x}$.",
+  question("Following from Question 1 above, you are given that the 97.5th quantile of the $t$ distribution with 7 degrees of freedom is 2.365 (you can find this manually using this [t-distribution table](http://statcalculators.com/students-t-distribution-table/) or try using `R`: `qt(0.975, df=7)`). Calculate a 95% confidence interval for $\\bar{x}$.",
     answer("(1.96, 8.04)", correct = TRUE),
     answer("(1.76, 8.24)"),
     answer("(3.93, 6.07)"),
